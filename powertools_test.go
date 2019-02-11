@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestKeySetMap(t *testing.T) {
+func TestPowerMap(t *testing.T) {
 	var map1 = NewPowerMap()
 
 	set1 := map[string]int{"a": 1, "b": 2}
@@ -28,7 +28,7 @@ func TestKeySetMap(t *testing.T) {
 		t.Fatalf("bad, Expected values to be the same: %s=%s", val1, val2)
 	}
 
-	delete(map1, set3)
+	map1.Delete(set3)
 
 	val3, _ := map1.Get(set1)
 
