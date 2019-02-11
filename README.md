@@ -1,2 +1,2 @@
 # byexample
-Go by example - a testing framework
+Go by example - a go utilities framework
