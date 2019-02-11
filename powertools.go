@@ -8,7 +8,7 @@ type Set map[interface{}]interface{}
 
 type PowerMap map[uint64]interface{}
 
-func (setMap PowerMap) set(key interface{}, value interface{}) (uint64, error) {
+func (setMap PowerMap) Set(key interface{}, value interface{}) (uint64, error) {
 	keyHash, error := hashstructure.Hash(key, nil)
 	if error != nil {
 		setMap[keyHash] = value
@@ -16,7 +16,7 @@ func (setMap PowerMap) set(key interface{}, value interface{}) (uint64, error) {
 	return keyHash, error
 }
 
-func (setMap PowerMap) get(key interface{}) (interface{}, error) {
+func (setMap PowerMap) Get(key interface{}) (interface{}, error) {
 	keyHash, error := hashstructure.Hash(key, nil)
 	if error != nil {
 		return setMap[keyHash], nil
@@ -24,7 +24,7 @@ func (setMap PowerMap) get(key interface{}) (interface{}, error) {
 	return nil, error
 }
 
-func (setMap PowerMap) delete(key interface{}) error {
+func (setMap PowerMap) Delete(key interface{}) error {
 	keyHash, error := hashstructure.Hash(key, nil)
 	if error != nil {
 		delete(setMap, keyHash)
